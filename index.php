@@ -1,5 +1,8 @@
 <?php get_header(); ?>
 
+<section id="content" class="container">
+	<div class="row">
+		<div class="col-md-8">
 	<?php if ( have_posts() ) : ?>
 	
 		<?php /* Start the Loop */ ?>
@@ -19,6 +22,11 @@
 			<div class="post-next"><?php previous_posts_link( __( 'Newer posts &rarr;', 'reverie' ) ); ?></div>
 		</nav>
 	<?php } */ ?>
-	<?php get_sidebar(); ?>
-		
+		</div>
+		<div class="col-md-4">
+		<?php get_sidebar(); ?>
+		</div>
+	</div>
+</section>
+
 <?php get_footer(); ?>
