@@ -1,0 +1,96 @@
+<?php
+/**
+ * header.php
+ *
+ * @author		Long Duong
+ * @package 	WPReboot
+ * @since 		0.1 - 07.15.2012
+ */
+?>
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" <?php language_attributes(); ?> > <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" <?php language_attributes(); ?> > <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" <?php language_attributes(); ?> "> <![endif]-->
+<!-- Consider adding an manifest.appcache: h5bp.com/d/Offline -->
+<!--[if gt IE 8]><!--> <html class="no-js" <?php language_attributes(); ?> > <!--<![endif]-->
+<head>
+	<meta charset="<?php bloginfo( 'charset' ); ?>">
+
+	<title><?php wp_title( '|', true, 'right' ); ?></title>
+
+	<!-- Mobile viewport optimized -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- Favicon and Feed -->
+	<link rel="shortcut icon" type="image/png" href="<?php echo get_template_directory_uri(); ?>/favicon.png">
+	<link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> Feed" href="<?php echo home_url(); ?>/feed/">
+
+	<!-- CSS Bootstrap 3.0 CDN -->
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+
+	<!--  iPhone Web App Home Screen Icon -->
+	<link rel="apple-touch-icon" sizes="72x72" href="<?php echo get_template_directory_uri(); ?>/img/devices/reverie-icon-ipad.png" />
+	<link rel="apple-touch-icon" sizes="114x114" href="<?php echo get_template_directory_uri(); ?>/img/devices/reverie-icon-retina.png" />
+	<link rel="apple-touch-icon" href="<?php echo get_template_directory_uri(); ?>/img/devices/reverie-icon.png" />
+
+	<!-- Enable Startup Image for iOS Home Screen Web App -->
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<link rel="apple-touch-startup-image" href="<?php echo get_template_directory_uri(); ?>/mobile-load.png" />
+
+	<!-- Startup Image iPad Landscape (748x1024) -->
+	<link rel="apple-touch-startup-image" href="<?php echo get_template_directory_uri(); ?>/img/devices/reverie-load-ipad-landscape.png" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape)" />
+	<!-- Startup Image iPad Portrait (768x1004) -->
+	<link rel="apple-touch-startup-image" href="<?php echo get_template_directory_uri(); ?>/img/devices/reverie-load-ipad-portrait.png" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait)" />
+	<!-- Startup Image iPhone (320x460) -->
+	<link rel="apple-touch-startup-image" href="<?php echo get_template_directory_uri(); ?>/img/devices/reverie-load.png" media="screen and (max-device-width: 320px)" />
+
+<?php wp_head(); ?>
+</head>
+
+<body <?php body_class(); ?>>
+
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+	<!-- Brand and toggle get grouped for better mobile display -->
+  	<div class="navbar-header">
+    	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+	      	<span class="sr-only">Toggle navigation</span>
+	      	<span class="icon-bar"></span>
+	      	<span class="icon-bar"></span>
+	      	<span class="icon-bar"></span>
+    	</button>
+    	<a class="navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
+  	</div>
+
+  	<!-- Collect the nav links, forms, and other content for toggling -->
+  	<div class="collapse navbar-collapse navbar-ex1-collapse">
+    	<ul class="nav navbar-nav">
+      		<li class="active"><a href="#">Link</a></li>
+      		<li><a href="#">Link</a></li>
+      		<li class="dropdown">
+        		<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+        		<ul class="dropdown-menu">
+          			<li><a href="#">Action</a></li>
+          			<li><a href="#">Another action</a></li>
+          			<li><a href="#">Something else here</a></li>
+          			<li><a href="#">Separated link</a></li>
+          			<li><a href="#">One more separated link</a></li>
+        		</ul>
+      		</li>
+    	</ul>
+    	<form class="navbar-form navbar-right" role="search">
+      		<div class="form-group">
+        		<input type="text" class="form-control" placeholder="Search">
+      		</div>
+      		<button type="submit" class="btn btn-default">Submit</button>
+    	</form>
+  	</div><!-- /.navbar-collapse -->
+</nav>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>Hello, world!</h1>
+    <p>This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information...</p>
+    <p><a class="btn btn-primary btn-lg">Learn more</a></p>
+  </div>
+</div>
+
