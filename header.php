@@ -22,29 +22,32 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<!-- Favicon and Feed -->
-	<link rel="shortcut icon" type="image/png" href="<?php echo get_template_directory_uri(); ?>/favicon.png">
+	<link rel="shortcut icon" type="image/png" href="<?php echo get_template_directory_uri(); ?>/img/ico/favicon.ico">
 	<link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> Feed" href="<?php echo home_url(); ?>/feed/">
 
-	<!-- CSS Bootstrap 3.0 CDN -->
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-
 	<!--  iPhone Web App Home Screen Icon -->
-	<link rel="apple-touch-icon" sizes="72x72" href="<?php echo get_template_directory_uri(); ?>/img/devices/reverie-icon-ipad.png" />
-	<link rel="apple-touch-icon" sizes="114x114" href="<?php echo get_template_directory_uri(); ?>/img/devices/reverie-icon-retina.png" />
-	<link rel="apple-touch-icon" href="<?php echo get_template_directory_uri(); ?>/img/devices/reverie-icon.png" />
+	<link rel="apple-touch-icon" sizes="57x57" href="<?php echo get_template_directory_uri(); ?>/img/ico/wpreboot-icon-57x57-ipad.png" />
+	<link rel="apple-touch-icon" sizes="72x72" href="<?php echo get_template_directory_uri(); ?>/img/ico/wpreboot-icon-72x72-ipad.png" />
+	<link rel="apple-touch-icon" sizes="114x114" href="<?php echo get_template_directory_uri(); ?>/img/ico/wpreboot-icon-114x114-retina.png" />
+	<link rel="apple-touch-icon" sizes="144x144" href="<?php echo get_template_directory_uri(); ?>/img/ico/wpreboot-icon-144x144-retina.png" />
+	<link rel="apple-touch-icon" href="<?php echo get_template_directory_uri(); ?>/img/ico/wpreboot-icon.png" />
 
 	<!-- Enable Startup Image for iOS Home Screen Web App -->
 	<meta name="apple-mobile-web-app-capable" content="yes" />
-	<link rel="apple-touch-startup-image" href="<?php echo get_template_directory_uri(); ?>/mobile-load.png" />
+	<link rel="apple-touch-startup-image" href="<?php echo get_template_directory_uri(); ?>/img/ico/mobile-load.png" />
 
 	<!-- Startup Image iPad Landscape (748x1024) -->
-	<link rel="apple-touch-startup-image" href="<?php echo get_template_directory_uri(); ?>/img/devices/reverie-load-ipad-landscape.png" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape)" />
+	<link rel="apple-touch-startup-image" href="<?php echo get_template_directory_uri(); ?>/img/ico/wpreboot-load-ipad-landscape.png" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape)" />
 	<!-- Startup Image iPad Portrait (768x1004) -->
-	<link rel="apple-touch-startup-image" href="<?php echo get_template_directory_uri(); ?>/img/devices/reverie-load-ipad-portrait.png" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait)" />
+	<link rel="apple-touch-startup-image" href="<?php echo get_template_directory_uri(); ?>/img/ico/wpreboot-load-ipad-portrait.png" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait)" />
 	<!-- Startup Image iPhone (320x460) -->
-	<link rel="apple-touch-startup-image" href="<?php echo get_template_directory_uri(); ?>/img/devices/reverie-load.png" media="screen and (max-device-width: 320px)" />
+	<link rel="apple-touch-startup-image" href="<?php echo get_template_directory_uri(); ?>/img/ico/wpreboot-load.png" media="screen and (max-device-width: 320px)" />
 
-<?php wp_head(); ?>
+
+    <?php wp_head(); ?>
+	
+	<!-- CSS Bootstrap 3.0 CDN -->
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
 </head>
 
 <body <?php body_class(); ?>>

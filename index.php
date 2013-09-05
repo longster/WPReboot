@@ -7,11 +7,11 @@
 	
 		<?php /* Start the Loop */ ?>
 		<?php while ( have_posts() ) : the_post(); ?>
-			<?php get_template_part( 'format/content', get_post_format() ); ?>
+			<?php get_template_part( 'module/content', get_post_format() ); ?>
 		<?php endwhile; ?>
 		
 		<?php else : ?>
-			<?php get_template_part( 'format/content', 'none' ); ?>
+			<?php get_template_part( 'module/content', 'none' ); ?>
 		
 	<?php endif; // end have_posts() check ?>
 	

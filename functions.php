@@ -15,11 +15,10 @@ anything else you may wan to use plugins to keep things tidy.
 */
 require_once('lib/clean.php'); // do all the cleaning and enqueue here
 /*
-2. lib/enqueue-sass.php or enqueue-css.php
-    - enqueueing scripts & styles for Sass OR CSS
-    - please use either Sass OR CSS, having two enabled will ruin your weekend
+2. lib/enqueue.php
+    - enqueueing scripts & styles
 */
-require_once('lib/enqueue-css.php'); // to use CSS for customization
+require_once('lib/enqueue.php'); // to deregister or register styles & scripts
 /*
 3. lib/bootstrap.php
 	- add pagination

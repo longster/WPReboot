@@ -110,8 +110,8 @@ function wpreboot_scripts_and_styles() {
     // ie-only style sheet
     wp_register_style( 'wpreboot-ie-only', get_template_directory_uri() . '/css/ie.css', array(), '' );
 
-    // comment reply script for threaded comments
-    if( get_option( 'thread_comments' ) )  { wp_enqueue_script( 'comment-reply' ); }
+    // comment reply script for threaded comments (duplicate - there is another one in lib/enqueue.php which is why i commented out)
+    // if( get_option( 'thread_comments' ) )  { wp_enqueue_script( 'comment-reply' ); }
     
     global $is_IE;
     if ($is_IE) {
