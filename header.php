@@ -67,7 +67,7 @@
 			'theme_location'	=>	'primary',
 			'menu_class'		=>	'nav navbar-nav',
 			'depth'				=>	2,
-			'fallback_cb'		=>	'wpreboot_main_menu_fallback',
+			'fallback_cb'		=>	'wpreboot_menu_fallback',
 			'walker'			=>	new WPReboot_Nav_Walker,
 		) );  ?>
     	<form class="navbar-form navbar-right" role="search">

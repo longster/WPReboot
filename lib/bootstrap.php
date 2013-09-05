@@ -1,4 +1,61 @@
 <?php
+// Pagination
+function wpreboot_pagination() {
+	global $wp_query;
+ 
+	$big = 999999999; // This needs to be an unlikely integer
+ 
+	// For more options and info view the docs for paginate_links()
+	// http://codex.wordpress.org/Function_Reference/paginate_links
+	$paginate_links = paginate_links( array(
+		'base' => str_replace( $big, '%#%', get_pagenum_link($big) ),
+		'current' => max( 1, get_query_var('paged') ),
+		'total' => $wp_query->max_num_pages,
+		'mid_size' => 5,
+		'prev_next' => True,
+	    'prev_text' => __('&laquo;'),
+	    'next_text' => __('&raquo;'),
+		'type' => 'list'
+	) );
+ 
+	// Display the pagination if more than one page is found
+	if ( $paginate_links ) {
+		//echo '<ul class="pagination">';
+		echo $paginate_links;
+		//echo '</ul><!--// end .pagination -->';
+	}
+}
+
+/*
+ * Replace page-numbers to pagination
+ */
+function wpreboot_paginate_css_class( $classes ) {
+	if ( in_array('page-numbers', $classes ) OR in_array( 'page-numbers', $classes ) )
+		$classes[] = 'pagination';
+
+	return $classes;
+}
+add_filter( 'paginate_css_class', 'wpreboot_paginate_css_class' );
+
+
+/**
+ * A fallback when no navigation is selected by default, otherwise it throws some nasty errors in your face.
+ */
+function wpreboot_menu_fallback() {
+	echo '<span class="" style="color: #fff; margin: 15px 0; color: #999; display: inline-block;">';
+	// Translators 1: Link to Menus, 2: Link to Customize
+  	printf( __( 'Assign menu to the Primary Nav under %1$s or %2$s the design.', 'wpreboot' ),
+  		sprintf(  __( '<a href="%s">Menus</a>', 'wpreboot' ),
+  			get_admin_url( get_current_blog_id(), 'nav-menus.php' )
+  		),
+  		sprintf(  __( '<a href="%s">Customize</a>', 'wpreboot' ),
+  			get_admin_url( get_current_blog_id(), 'customize.php' )
+  		)
+  	);
+  	echo '</span>';
+}
+
+
 /**
  * class required_walker
  * Custom output to enable the the Bootstrap Navigation style.
@@ -102,13 +159,6 @@ class WPReboot_Nav_Walker extends Walker_Nav_Menu {
 
 /**
  * Adds the active CSS class
- *
- * @author	Konstantin Obenland
- * @since	1.5.0 - 15.05.2012
- *
- * @param	array	$classes	Default class names
- *
- * @return	array
  */
 function wpreboot_nav_menu_css_class( $classes ) {
 	if ( in_array('current-menu-item', $classes ) OR in_array( 'current-menu-ancestor', $classes ) )

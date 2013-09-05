@@ -47,8 +47,9 @@ function wpreboot_theme_support() {
 	// Add menu supports. http://codex.wordpress.org/Function_Reference/register_nav_menus
 	add_theme_support('menus');
 	register_nav_menus(array(
-		'primary' => __('Primary Navigation', 'wpreboot'),
-		'utility' => __('Utility Navigation', 'wpreboot')
+		'primary' => __('Primary Nav', 'wpreboot'),
+		'utility' => __('Utility Nav', 'wpreboot'),
+		'footer' => __('Footer Nav', 'wpreboot')
 	));
 	
 	// Add custom background support
