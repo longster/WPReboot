@@ -1,6 +1,6 @@
 [WPReboot Theme](http://lduong.com "WPReboot - coming soon")
 ===
-WPReboot is a WordPress starter theme based on [HTML5 Boilerplate](http://html5boilerplate.com/) & [Bootstrap](http://getbootstrap.com) using [LESS](http://lesscss.org/). The goal is to optimize theme performance while keep the code/framework minimal and versatile. This is intended to use as a base/custom or child theme quickly and easily. 
+WPReboot is a WordPress starter theme based on [HTML5 Boilerplate](http://html5boilerplate.com/) & [Bootstrap](http://getbootstrap.com) using [LESS](http://lesscss.org/) CSS preporocessor. The goal is to optimize theme performance while keep the code/framework minimal and versatile. This is intended to use as a base/custom or child theme quickly and easily. 
 
 Demo
 ---
@@ -12,13 +12,15 @@ Please note, this is still a working progress. The theme as is will work, but th
 - Download Zip file: https://github.com/longster/WPReboot/archive/master.zip
 - Fork: https://github.com/longster/WPReboot/fork
 
-#### Set up Less for Mac
+#### Set up Less for Mac (WIP)
+This method is set up thru server side only. 
 1. Install nodejs.org
 2. Install bower package
-3. Install recess
+3. Install recess or install lesscss
 4. More instruction to come
 
-#### Set up Less for PC
+#### Set up Less for PC (WIP)
+This method is set up thru server side only. 
 1. Instruction coming soon
 
 
