@@ -11,6 +11,13 @@ Getting Started
 Please note, this is still a working progress. The theme as is will work, but there are components that are missing which will be added when time permits.
 - Download http://longster.github.com/WPReboot/
 
+### Set up Less for Mac
+1 Install nodejs.org
+2 Install bower package
+3 Install recess
+
+
+### Set up Less for Mac
 
 
 Features
@@ -31,6 +38,6 @@ Sources
 * http://getbootstrap.com
 * http://html5boilerplate.com/
 * http://nodejs.org/
-* http://http://bower.io/
+* http://bower.io/
 * http://twitter.github.io/recess/
 * http://lesscss.org/
