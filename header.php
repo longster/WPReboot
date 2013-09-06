@@ -82,6 +82,7 @@
   	</div><!-- /.navbar-collapse -->
 </nav>
 
+<?php if (is_front_page()) : ?>
 <section class="jumbotron">
   <div class="container">
     <h1>Hello, world!</h1>
@@ -89,4 +90,4 @@
     <p><a class="btn btn-primary btn-lg">Learn more</a></p>
   </div>
 </section>
-
+<?php endif; ?>
