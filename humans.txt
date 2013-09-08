@@ -1,15 +1,28 @@
-# humanstxt.org/
-# The humans responsible & technology colophon
+/* WPReboot is a versatile HTML5 responsive WordPress framework based on Bootstrap 3.0. */
 
-# TEAM
+/* TEAM */
 
-    <name> -- <role> -- <twitter>
+Long Duong
+http://wpreboot.lduong.com
+WPReboot Framework: http://wpreboot.lduong.com
 
-# THANKS
 
-    <name>
+/* THANKS */							
 
-# TECHNOLOGY COLOPHON
+Bootstrap
+http://getbootstrap.com/
 
-    HTML5, CSS3
-    jQuery, Modernizr
+HTML5 Boilerplate
+http://html5boilerplate.com/
+
+Roots
+http://www.rootstheme.com/
+
+Reveire
+http://themefortress.com/reverie/
+
+/* SITE */           
+    
+Standards: HTML5, CSS3              
+Components: Modernizr, jQuery, etc.
+CMS: WordPress
