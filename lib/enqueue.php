@@ -1,24 +1,21 @@
 <?php
-/*********************
-Enqueue the proper stuff
-*********************/
-//function wpreboot_css_style()
-//{	
-	// Register the main style under root directory
-	//wp_register_style( 'wpreboot-stylesheet', get_stylesheet_directory_uri() . '/style.css', array(), '', 'all' );
-	
-	//wp_enqueue_style( 'wpreboot-stylesheet' );
-	
-//}
-//add_action( 'wp_enqueue_scripts', 'wpreboot_css_style' );
+/**
+ * Enqueue stylesheets only
+**/
+function wpreboot_css_style()
+{	
+	wp_register_style( 'wpreboot-stylesheet', get_stylesheet_directory_uri() . '/style.css', array(), '', 'all' );
+	wp_register_style('bootstrap-stylesheet', 'http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css');
+  
+	wp_enqueue_style( 'wpreboot-stylesheet' );
+	wp_enqueue_style('bootstrap-stylesheet');
+}
+add_action( 'wp_enqueue_scripts', 'wpreboot_css_style' );
 
 
 
 /**
- * Enqueue scripts and stylesheets
- *
- * Enqueue stylesheets in the following order:
- * 1. /theme/assets/css/main.min.css
+ * Enqueue scripts only
  *
  * Enqueue scripts in the following order:
  * 1. jquery-1.10.2.min.js via Google CDN
@@ -26,27 +23,41 @@ Enqueue the proper stuff
  * 3. /theme/assets/js/main.min.js (in footer)
  */
 function wpreboot_scripts() {
-	wp_enqueue_style('wpreboot-stylesheet', get_template_directory_uri() . '/style.css', array(), '', 'all' );
-
-  	// jQuery is loaded using the same method from HTML5 Boilerplate:
+		// jQuery is loaded using the same method from HTML5 Boilerplate:
   	// Grab Google CDN's latest jQuery with a protocol relative URL; fallback to local if offline
   	// It's kept in the header instead of footer to avoid conflicts with plugins.
-  	if (!is_admin() && current_theme_supports('jquery-cdn')) {
-    	wp_deregister_script('jquery');
-    	wp_register_script('jquery', '//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js', false, null, false);
-    	add_filter('script_loader_src', 'wpreboot_jquery_local_fallback', 10, 2);
+  	if (!is_admin()) { //&& current_theme_supports('jquery-cdn') - this was removed after admin() which interferes with google cdn and adds 2 jquery stuff which seems unnecesary
+      
+      // uncomment below and the enqueue if you want to support IE for html5shiv
+      // ie-only style sheet
+      //wp_register_style( 'wpreboot-ie-only', get_template_directory_uri() . '/assets/css/ie.css', array(), '' );
+
+      //global $is_IE;
+      //if ($is_IE) {
+      //   wp_register_script ( 'html5shiv', "http://html5shiv.googlecode.com/svn/trunk/html5.js" , false, true);
+      //}
+      
+      wp_deregister_script('jquery');
+    	wp_register_script('jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js', false, null, true);
+      add_filter('script_loader_src', 'wpreboot_jquery_local_fallback', 10, 2);
   	}
 
   	if (is_single() && comments_open() && get_option('thread_comments')) {
    		wp_enqueue_script('comment-reply');
   	}
 
-  	wp_register_script('modernizr', get_template_directory_uri() . '/js/modernizr-2.6.2-respond-1.1.0.min.js', false, null, false);
-  	//wp_register_script('wpreboot_scripts', get_template_directory_uri() . '/assets/js/scripts.min.js', false, '2a3e700c4c6e3d70a95b00241a845695', true);
-
-  	wp_enqueue_script('modernizr');
-  	wp_enqueue_script('jquery');
-  	wp_enqueue_script('roots_scripts');
+  	wp_register_script('modernizr', get_template_directory_uri() . '/assets/js/modernizr-2.6.2-respond-1.1.0.min.js', false, null);  	
+    //wp_register_script('wpreboot_scripts', get_template_directory_uri() . '/assets/js/scripts.min.js', false, '2a3e700c4c6e3d70a95b00241a845695', true);
+    wp_register_script('bootstrap-js','http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js', false, null, true);
+    
+    // enqueue styles and scripts
+    //wp_enqueue_style('wpreboot-ie-only');
+    //wp_enqueue_script( 'html5shiv' );
+    wp_enqueue_script('modernizr');
+    wp_enqueue_script('jquery');
+    wp_enqueue_script('bootstrap-js');
+  	//wp_enqueue_script('wpreboot_scripts');
+    
 }
 add_action('wp_enqueue_scripts', 'wpreboot_scripts', 100);
 
@@ -55,7 +66,7 @@ function wpreboot_jquery_local_fallback($src, $handle) {
 	static $add_jquery_fallback = false;
 
   	if ($add_jquery_fallback) {
-    	echo '<script>window.jQuery || document.write(\'<script src="' . get_template_directory_uri() . '/js/jquery-1.10.1.min.js"><\/script>\')</script>' . "\n";
+    	echo '<script>window.jQuery || document.write(\'<script src="' . get_template_directory_uri() . '/assets/js/jquery-1.10.1.min.js"><\/script>\')</script>' . "\n";
     	$add_jquery_fallback = false;
   	}
 

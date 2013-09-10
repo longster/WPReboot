@@ -1,5 +1,5 @@
 <?php
-/** page_full.php
+/** page-full.php
  *
  * Template Name: Full Width
  *
