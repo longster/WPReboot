@@ -83,9 +83,15 @@
 <?php if (is_front_page()) : ?>
 <section class="jumbotron">
   <div class="container">
-    <h1>Hello, world!</h1>
-    <p>This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information...</p>
-    <p><a class="btn btn-primary btn-lg">Learn more</a></p>
+    <h1>WPReboot+</h1>
+    <h2>HTML5Boilerplate + Bootstrap + Less</h2>
+    <h3>A Free Responsive Wordpress Theme Framework Based on Bootstrap + HTML5BoilerPlate.</h3>
+
+    <div class="row">
+    	<div class="col-md-4"><a class="btn btn-primary btn-lg btn-block">Download Theme</a></div>
+    	<div class="col-md-4"><a class="btn btn-primary btn-lg btn-block">View Project on Github</a></div>
+    	<div class="col-md-4"><a class="btn btn-primary btn-lg btn-block">Fork Me</a></div>
+    </div>
   </div>
 </section>
 <?php endif; ?>

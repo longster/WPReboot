@@ -9,17 +9,3 @@ Author URI:         http://lduong.com/
 License:            MIT License
 License URI:        http://www.opensource.org/licenses/mit-license.php
 */
-
-/* -------------------------------------------------- 
-
-	This stylesheet will not be loaded in the front
-	end by default.
-
--------------------------------------------------- */
-
-/* Start to customize WPReboot */
-
-
-#content {
-	padding-top: 2em;
-}
