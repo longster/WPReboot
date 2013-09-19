@@ -1,0 +1,45 @@
+/*
+Theme Name:         WPReboot
+Theme URI:          http://wpreboot.lduong.com
+Description:        WPReboot is a versatile HTML5 responsive WordPress framework based on Bootstrap.
+Version:            3.0
+Author:             Long Duong
+Author URI:         http://lduong.com/
+
+License:            MIT License
+License URI:        http://www.opensource.org/licenses/mit-license.php
+*/
+
+/* --------------------------------------------------------------------------------- 
+-
+-	A couple of options to modify the stylesheeet:
+-   1. Use server-side css preprocessor: (recommended - http://lesscss.org/)
+- 	   assets/less/custom/style.less 
+- 	   assets/less/custom/skin-variables.less
+- 	   Compile using Cmd line- lessc assets/less/custom/style.less > style.css
+- 	   
+-   2. Straight CSS
+-      Note: If you decide to use LESS in the future, LESS 
+-            will overide the css files
+-
+------------------------------------------------------------------------------------ */
+
+
+// Original file from bootstrap 3.0.0
+@import "../bootstrap3/bootstrap.less";
+
+// Overide bootstrap default's setting
+@import "skin-variables.less";
+
+// Additional styles
+.fallback {
+	color: #fff;
+	margin: 15px 0; 
+	display: inline-block;
+	a {
+		color: #b13e2e;
+		&:hover {
+			color:#fff;
+		}
+	}
+}	

@@ -51,46 +51,46 @@
 <body <?php body_class(); ?>>
 
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-	<!-- Brand and toggle get grouped for better mobile display -->
-  	<div class="navbar-header">
-    	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-	      	<span class="sr-only">Toggle navigation</span>
-	      	<span class="icon-bar"></span>
-	      	<span class="icon-bar"></span>
-	      	<span class="icon-bar"></span>
-    	</button>
-    	<a class="navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
-  	</div>
+	<div class="container">
+		<!-- Brand and toggle get grouped for better mobile display -->
+	  	<div class="navbar-header">
+	    	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+		      	<span class="sr-only">Toggle navigation</span>
+		      	<span class="icon-bar"></span>
+		      	<span class="icon-bar"></span>
+		      	<span class="icon-bar"></span>
+	    	</button>
+	    	<a class="navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
+	  	</div>
 
-  	<!-- Collect the nav links, forms, and other content for toggling -->
-  	<div class="collapse navbar-collapse navbar-ex1-collapse">
-    	<?php wp_nav_menu( array(
-			'theme_location'	=>	'primary',
-			'menu_class'		=>	'nav navbar-nav',
-			'depth'				=>	2,
-			'fallback_cb'		=>	'wpreboot_menu_fallback',
-			'walker'			=>	new WPReboot_Nav_Walker,
-		) );  ?>
-    	<form class="navbar-form navbar-right" role="search">
-      		<div class="form-group">
-        		<input type="text" class="form-control" placeholder="Search">
-      		</div>
-      		<button type="submit" class="btn btn-default">Submit</button>
-    	</form>
-  	</div><!-- /.navbar-collapse -->
+	  	<!-- Collect the nav links, forms, and other content for toggling -->
+	  	<div class="collapse navbar-collapse navbar-ex1-collapse">
+	    	<?php wp_nav_menu( array(
+				'theme_location'	=>	'primary',
+				'menu_class'		=>	'nav navbar-nav',
+				'depth'				=>	2,
+				'fallback_cb'		=>	'wpreboot_menu_fallback',
+				'walker'			=>	new WPReboot_Nav_Walker,
+			) );  ?>
+	    	<form class="navbar-form navbar-right" role="search">
+	      		<div class="form-group">
+	        		<input type="text" class="form-control" placeholder="Search">
+	      		</div>
+	      		<button type="submit" class="btn btn-default">Submit</button>
+	    	</form>
+	  	</div><!-- /.navbar-collapse -->
+  	</div>
 </nav>
 
 <?php if (is_front_page()) : ?>
-<section class="jumbotron">
+<section class="jumbotron text-center">
   <div class="container">
-    <h1>WPReboot+</h1>
-    <h2>HTML5Boilerplate + Bootstrap + Less</h2>
-    <h3>A Free Responsive Wordpress Theme Framework Based on Bootstrap + HTML5BoilerPlate.</h3>
+    <h1>Wordpress Theme Development</h1>
+    <h2>WPReboot is a Responsive WordPress theme based on HTML5 Boilerplate using Bootstrap or Foundation’s CSS preprocessors development method.</h2>
 
     <div class="row">
-    	<div class="col-md-4"><a class="btn btn-primary btn-lg btn-block">Download Theme</a></div>
-    	<div class="col-md-4"><a class="btn btn-primary btn-lg btn-block">View Project on Github</a></div>
-    	<div class="col-md-4"><a class="btn btn-primary btn-lg btn-block">Fork Me</a></div>
+    	<div class="col-md-offset-1 col-md-5 "><a class="btn btn-primary btn-lg btn-block">WPReboot : Bootstrap / LESS</a></div>
+    	<div class="col-md-5"><a class="btn btn-primary btn-lg btn-block">WPReboot : Foundation / Scss</a></div>
     </div>
   </div>
 </section>

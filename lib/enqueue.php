@@ -5,9 +5,10 @@
 function wpreboot_css_style()
 {	
 	wp_register_style( 'wpreboot-stylesheet', get_stylesheet_directory_uri() . '/style.css', array(), '', 'all' );
-	wp_register_style('bootstrap-stylesheet', 'http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css');
+	//wp_register_style('bootstrap-stylesheet', 'http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css');
   
 	wp_enqueue_style( 'wpreboot-stylesheet' );
+  wp_enqueue_style( 'wpreboot-skin' );
 	wp_enqueue_style('bootstrap-stylesheet');
 }
 add_action( 'wp_enqueue_scripts', 'wpreboot_css_style' );

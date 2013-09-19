@@ -42,7 +42,7 @@ add_filter( 'paginate_css_class', 'wpreboot_paginate_css_class' );
  * A fallback when no navigation is selected by default, otherwise it throws some nasty errors in your face.
  */
 function wpreboot_menu_fallback() {
-	echo '<span class="" style="color: #fff; margin: 15px 0; color: #999; display: inline-block;">';
+	echo '<span class="fallback">';
 	// Translators 1: Link to Menus, 2: Link to Customize
   	printf( __( 'Assign menu to the Primary Nav under %1$s or %2$s the design.', 'wpreboot' ),
   		sprintf(  __( '<a href="%s">Menus</a>', 'wpreboot' ),
