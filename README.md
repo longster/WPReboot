@@ -15,6 +15,8 @@ Bootstrap
 - Fork: https://github.com/longster/WPReboot/fork
 
 Foundation
+- Download Zip file:
+- Fork:
 
 #### Set up Less
 For Mac (WIP)
