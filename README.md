@@ -1,6 +1,6 @@
 [WPReboot Theme](http://lduong.com "WPReboot - coming soon")
 ===
-WPReboot is a WordPress starter theme based on [HTML5 Boilerplate](http://html5boilerplate.com/) with the option of [Bootstrap](http://getbootstrap.com) using [LESS](http://lesscss.org/) or [Foundation Zurb](http://foundation.zurb.com) using [Sass](sass-lang.com). The goal is to provide you 2 most popular css preprossesors without sacrificing the theme performance while keeping the code/framework minimal and versatile. The choice is yours
+The goal is to provide you 2 most popular css preprossesors without sacrificing the theme performance while keeping the code/framework minimal and versatile. WPReboot is a WordPress starter theme based on [HTML5 Boilerplate](http://html5boilerplate.com/).  The choice is yours to work with [Bootstrap](http://getbootstrap.com) using [LESS](http://lesscss.org/) or [Foundation Zurb](http://foundation.zurb.com) using [Sass](sass-lang.com). 
 
 Demo
 ---
