@@ -1,6 +1,6 @@
 [WPReboot Theme](http://lduong.com "WPReboot - coming soon")
 ===
-WPReboot is a WordPress starter theme based on [HTML5 Boilerplate](http://html5boilerplate.com/) & [Bootstrap](http://getbootstrap.com) using [LESS](http://lesscss.org/) CSS preporocessor. The goal is to optimize theme performance while keep the code/framework minimal and versatile. This is intended to use as a base/custom or child theme quickly and easily. 
+WPReboot is a WordPress starter theme based on [HTML5 Boilerplate](http://html5boilerplate.com/) with the option of [Bootstrap](http://getbootstrap.com) using [LESS](http://lesscss.org/) or [Foundation Zurb](http://foundation.zurb.com) using [Sass](sass-lang.com). The goal is to provide you 2 most popular css preprossesors without sacrificing the theme performance while keeping the code/framework minimal and versatile. The choice is yours
 
 Demo
 ---
@@ -8,19 +8,31 @@ Demo is not yet available, but it will eventually be found at ~~http://wpreboot.
 
 Getting Started
 ---
-Please note, this is still a working progress. The theme as is will work, but there are components that are missing which will be added when time permits.
+Please note, this is still a working progress.  WPReboot Bootstrap is the only theme that is currently working, but there are components that are missing which will be added when time permits.  WPReboot Foundation will be implement once bootstrap is in place.
+
+Bootstrap
 - Download Zip file: https://github.com/longster/WPReboot/archive/master.zip
 - Fork: https://github.com/longster/WPReboot/fork
 
-#### Set up Less for Mac (WIP)
+Foundation
+
+#### Set up Less
+For Mac (WIP)
 This method is set up thru server side only. 
 1. Install nodejs.org
 2. Install bower package
 3. Install recess or install lesscss
 4. More instruction to come
 
-#### Set up Less for PC (WIP)
+For PC (WIP)
 This method is set up thru server side only. 
+1. Instruction coming soon
+
+#### Set up Sass/Scss
+For Mac (WIP)
+1. Instruction coming soon
+
+For PC (WIP)
 1. Instruction coming soon
 
 
@@ -29,10 +41,10 @@ Features
 WPReboot inherits all the cool features from Bootstrap, and packs with several other interesting features to optimize the experience for WordPress and HTML5. Including customized output for WordPress menus and caption. You can view the features list by scrolling down.
 
 #### Basic
-- Less compatible
+- Less or Sass compatible
 - Mobile first
 - HTML5Boilerplate
-- Bootstrap 3.0
+- Bootstrap 3.0 / Foundation 4.3.1
 - Speed (Verify by YSlow - should be B or above)
 - SEO friendly
 - Basic CSS included
@@ -64,8 +76,10 @@ Sources
 ---
 * http://wordpress.org/
 * http://getbootstrap.com
+* http://foundation.zurb.com
 * http://html5boilerplate.com/
 * http://nodejs.org/
+* https://www.ruby-lang.org/
 * http://bower.io/
-* http://twitter.github.io/recess/
 * http://lesscss.org/
+* http://sass-lang.com/
