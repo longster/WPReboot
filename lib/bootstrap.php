@@ -20,9 +20,9 @@ function wpreboot_pagination() {
  
 	// Display the pagination if more than one page is found
 	if ( $paginate_links ) {
-		//echo '<ul class="pagination">';
+		//echo '<div class="pagination">';
 		echo $paginate_links;
-		//echo '</ul><!--// end .pagination -->';
+		//echo '</div><!--// end .pagination -->';
 	}
 }
 
@@ -30,7 +30,7 @@ function wpreboot_pagination() {
  * Replace page-numbers to pagination NOT WORKING AT THE MOMENT.. still trying to debug this shit.
  */
 function wpreboot_paginate_css_class( $classes ) {
-	if ( in_array('page-numbers', $classes ) OR in_array( 'page-numbers', $classes ) )
+	if ( in_array('page-numbers', $classes ) )
 		$classes[] = 'pagination';
 
 	return $classes;
