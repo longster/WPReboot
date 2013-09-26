@@ -62,7 +62,6 @@ WPReboot inherits all the cool features from Bootstrap, and packs with several o
 - Three menus: top navigation menu, utility navigation menu, and footer information menu
 - Two Widget: sidebar and footer.
 - Several custom page templates are included in the package
-- ~~Clean URLs (no more /wp-content/)~~
 
 
 Contributing
@@ -85,3 +84,4 @@ Sources
 * http://bower.io/
 * http://lesscss.org/
 * http://sass-lang.com/
+* http://gruntjs.com/
