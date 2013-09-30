@@ -81,17 +81,3 @@
 	  	</div><!-- /.navbar-collapse -->
   	</div>
 </nav>
-
-<?php if (is_front_page()) : ?>
-<section class="jumbotron text-center">
-  <div class="container">
-    <h1>Wordpress Theme Development</h1>
-    <h2>WPReboot is a Responsive WordPress theme based on HTML5 Boilerplate using Bootstrap or Foundation’s CSS preprocessors development method.</h2>
-
-    <div class="row">
-    	<div class="col-md-offset-1 col-md-5 "><a class="btn btn-primary btn-lg btn-block">WPReboot : Bootstrap / LESS</a></div>
-    	<div class="col-md-5"><a class="btn btn-primary btn-lg btn-block">WPReboot : Foundation / Scss</a></div>
-    </div>
-  </div>
-</section>
-<?php endif; ?>
