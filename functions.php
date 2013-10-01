@@ -91,6 +91,19 @@ function wpreboot_entry_meta() {
 }
 
 
+// add credits
+if ( !function_exists( 'wpreboot_credits' ) ) :
+function wpreboot_credits() {
+	printf(
+		__('Copyright &copy; %1$s <a href="%2$s">%3$s</a> - All Rights Reserved.', 'wpreboot'),
+		date( 'Y' ),
+		home_url( '/' ),
+		get_bloginfo( 'name' )
+	);
+}
+endif; // Output credit information
+
+
 
 // Include the Google Analytics Tracking Code (ga.js)
 // @ http://code.google.com/apis/analytics/docs/tracking/asyncUsageGuide.html

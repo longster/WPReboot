@@ -26,6 +26,9 @@ License URI:        http://www.opensource.org/licenses/mit-license.php
 @import "../custom/skin-bootstrap.less";
 
 
+/* Extra small devices (phones, up to 480px) */
+
+
 /* ==========================================================================
    Base
    ========================================================================== */
@@ -38,19 +41,21 @@ body { }
    Header
    ========================================================================== */
 
+a.navbar-brand {
+   text-indent: -10000px;
+   overflow: hidden;
+   background: url('assets/img/wpreboot-logo.png') no-repeat center;
+   width: 170px;
+   opacity: 1;
+   &:hover {
+      opacity: .8;
+   }
+}
 .banner { }
-
-.fallback {
-	color: #fff;
-	margin: 15px 0; 
-	display: inline-block;
-	a {
-		color: #b13e2e;
-		&:hover {
-			color:#fff;
-		}
-	}
-}	
+.jumbotron {
+      border-bottom: 5px solid #b13e2e;
+      background: #d86045 url('assets/img/watermark-reboot.png') no-repeat center 60px;
+}
 
 
 
@@ -58,7 +63,16 @@ body { }
    Content
    ========================================================================== */
 
-.content { }
+.methods, .features{
+   margin-top: 30px;
+}
+.features {
+   margin-bottom: 30px;
+}
+.page #content, .single #content {
+   margin-top: 90px;
+}
+
 
 
 
@@ -66,7 +80,7 @@ body { }
    Primary Content
    ========================================================================== */
 
-.main { }
+
 
 /* Gallery Shortcode */
 .gallery-row { padding: 15px 0; }
@@ -77,7 +91,6 @@ body { }
    Sidebar
    ========================================================================== */
 
-.sidebar { }
 
 
 
@@ -85,19 +98,19 @@ body { }
    Posts
    ========================================================================== */
 
-.hentry header { }
-.hentry time { }
-.hentry .byline { }
-.hentry .entry-content { }
-.hentry footer { }
 
 
 
 /* ==========================================================================
    Footer
    ========================================================================== */
+#colophon {
+   padding-bottom: 30px;
+   .fallback {
+      color: inherit;      
+   }
 
-.content-info { }
+}
 
 
 
@@ -117,8 +130,56 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
    Media Queries
    ========================================================================== */
 
-@media (min-width: @screen-sm) { }
+/* Small devices (tablets, 768px and up) */
+@media (min-width: @screen-sm) {
 
-@media (min-width: @screen-md) { }
+}
 
-@media (min-width: @screen-lg) { }
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: @screen-md) { 
+   .fallback {
+      color: #fff;
+      margin: 15px 0; 
+      display: inline-block;
+      a {
+         color: #b13e2e;
+         &:hover {
+            color:#fff;
+         }
+      }
+   }  
+
+   .jumbotron {
+      padding-top: 64px;
+      padding-bottom: 64px;
+      h1 {
+         margin-bottom: 0;
+      }
+      h2 {
+         font-size: 30px;
+         line-height: 1.25em;
+         margin-bottom: 40px;
+      }
+   }
+
+   .home #content {
+      h2 {
+         font-size: 48px;
+         margin-bottom: 0;
+      }
+      h3 {
+         font-size: 30px;
+         margin-top: 0;
+      }
+      p {
+         font-size: 18px;
+      }
+   }
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: @screen-lg) {
+   .jumbotron {
+      border-bottom: 10px solid #b13e2e;
+   }
+}

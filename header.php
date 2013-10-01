@@ -67,12 +67,12 @@
 	  	<div class="collapse navbar-collapse navbar-ex1-collapse">
 	    	<?php wp_nav_menu( array(
 				'theme_location'	=>	'primary',
-				'menu_class'		=>	'nav navbar-nav',
+				'menu_class'		=>	'nav navbar-nav pull-right',
 				'depth'				=>	2,
 				'fallback_cb'		=>	'wpreboot_menu_fallback',
 				'walker'			=>	new WPReboot_Nav_Walker,
 			) );  ?>
-	    	<form class="navbar-form navbar-right" role="search">
+	    	<form class="hide navbar-form navbar-right" role="search">
 	      		<div class="form-group">
 	        		<input type="text" class="form-control" placeholder="Search">
 	      		</div>
