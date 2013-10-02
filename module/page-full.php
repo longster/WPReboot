@@ -18,8 +18,22 @@ get_header(); ?>
     	<h2 class="col-md-offset-1 col-md-10">WPReboot is a Responsive WordPress theme based on HTML5 Boilerplate using Bootstrap or Foundation’s CSS preprocessors development method.</h2>
 
     
-    	<div class="col-md-offset-1 col-md-5 "><a class="btn btn-primary btn-lg btn-block">WPReboot : Bootstrap / LESS</a></div>
-    	<div class="col-md-5"><a class="btn btn-primary btn-lg btn-block">WPReboot : Foundation / Scss</a></div>
+    	<div class="col-md-offset-2 col-md-4">
+    		<div class="options">
+    			<h4>WPReboot : Bootstrap / LESS</h4>
+    			<a class="btn btn-primary btn-lg btn-block">
+    				Download Zip
+    			</a>
+    		</div>
+    	</div>
+    	<div class="col-md-4">
+    		<div class="options">
+    			<h4>WPReboot : Foundation / Scss</h4>
+    			<a class="btn btn-primary btn-lg btn-block">
+    				Download Zip
+    			</a>
+    		</div>
+    	</div>
     </div>
   </div>
 </section>
@@ -34,12 +48,12 @@ get_header(); ?>
 		<div class="col-md-1 col-sm-1 col-xs-2"><img src="/wp-content/themes/wpreboot/assets/img/icon-b.png" /></div>
 		<div class="col-md-5 col-sm-5 col-xs-10">
 			<h3>Bootstrap’s Method</h3>
-			<p>WPReboot Bootstrap includes LESS framework using Javascript method. Learn more about Bootstrap or LESS.</p>
+			<p>WPReboot Bootstrap includes LESS framework using Javascript method. Learn more about <a href="http://getbootstrap.com">Bootstrap</a> or <a href="http://lesscss.org">LESS</a>.</p>
 		</div>
 		<div class="col-md-1 col-sm-1 col-xs-2"><img src="/wp-content/themes/wpreboot/assets/img/icon-f.png" /></div>
 		<div class="col-md-5 col-sm-5 col-xs-10">
 			<h3>Foundation's Method</h3>
-			<p>WPReboot Foundation includes Sass/Scss framework using Ruby method. Learn more about Foundation or Scss/Sass.</p>
+			<p>WPReboot Foundation includes Sass/Scss framework using Ruby method. Learn more about <a href="http://foundation.zurb.com/">Foundation</a> or <a href="http://sass-lang.com/">Scss/Sass</a>.</p>
 		</div>
 	</div><!-- .row -->
 	</div>
