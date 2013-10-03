@@ -21,7 +21,7 @@ function wpreboot_startup() {
     add_filter('gallery_style', 'wpreboot_gallery_style');
 
     // enqueue base scripts and styles
-    add_action('wp_enqueue_scripts', 'wpreboot_scripts_and_styles', 999);
+    // add_action('wp_enqueue_scripts', 'wpreboot_scripts_and_styles', 999);
     // ie conditional wrapper
     add_filter( 'style_loader_tag', 'wpreboot_ie_conditional', 10, 2 );
     

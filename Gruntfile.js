@@ -9,8 +9,6 @@ module.exports = function(grunt) {
       all: [
         'Gruntfile.js',
         'assets/js/*.js',
-        'assets/js/bootstrap3/*.js',
-        'assets/js/vendor/*.js',
         '!assets/js/scripts.min.js'
       ]
     },
@@ -71,7 +69,7 @@ module.exports = function(grunt) {
         files: [
           'assets/css/main.min.css',
           'assets/js/scripts.min.js',
-          'module/*.php',
+          'modules/*.php',
           '*.php'
         ]
       }

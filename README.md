@@ -4,7 +4,7 @@ The goal is to provide you 2 most popular css preprossesors without sacrificing 
 
 Demo
 ---
-Demo is not yet available, but it will eventually be found at ~~http://wpreboot.lduong.com/~~.  
+Demo is not yet available, but it will eventually be found at http://wpreboot.lduong.com/.  
 
 Getting Started
 ---

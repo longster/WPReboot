@@ -44,17 +44,35 @@ body { }
 a.navbar-brand {
    text-indent: -10000px;
    overflow: hidden;
-   background: url('assets/img/wpreboot-logo.png') no-repeat center;
+   background: url('assets/img/sprite.png') no-repeat 0 10px;
    width: 170px;
    opacity: 1;
+   margin-left: 15px !important;
    &:hover {
       opacity: .8;
    }
 }
+.navbar-nav>li>.dropdown-menu{
+   right: 0;
+   left: auto;
+}
 .banner { }
 .jumbotron {
-      border-bottom: 5px solid #b13e2e;
-      background: #d86045 url('assets/img/watermark-reboot.png') no-repeat center 70px;
+   background: #d86045 url('assets/img/sprite.png') no-repeat center -225px;
+   padding-top: 74px;
+   padding-bottom: 30px;
+   margin-bottom: 0;
+   h1 {
+      margin-bottom: 0;
+   }
+   h2 {
+   }
+}
+.download {
+   background-color: #d86045;
+   border-bottom: 5px solid #b13e2e;
+   padding-bottom: 40px;
+   margin-bottom: 30px;
 }
 
 
@@ -70,7 +88,7 @@ a.navbar-brand {
 .home #content {
    margin-top: 0 !important;
 }
-.page #content, .single #content {
+.page #content, .single #content, .archive #content {
    margin-top: 90px;
 }
 .options {
@@ -79,6 +97,20 @@ a.navbar-brand {
    border-radius: 5px;
    color: #333;
    margin-bottom: 10px;
+}
+.icon-b, .icon-f {
+   background: url('assets/img/sprite.png') no-repeat;
+   text-indent: -10000px;
+   width:60px;
+   height:60px;
+   overflow: hidden;
+   display: block;
+}
+.icon-b {
+   background-position:  center -1000px;
+}
+.icon-f {
+   background-position:  center -1450px;
 }
 
 
@@ -140,7 +172,20 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
 
 /* Small devices (tablets, 768px and up) */
 @media (min-width: @screen-sm) {
+   a.navbar-brand {
+      margin-left: 0px !important;
+   }
+   .navbar-nav {
+      float: right;
+   }
 
+   .jumbotron {
+      h1, h2 {
+         max-width:920px;
+         margin-left: auto;
+         margin-right: auto;
+      }
+   }
 }
 
 /* Medium devices (desktops, 992px and up) */
@@ -158,16 +203,25 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
    }  
 
    .jumbotron {
-      padding-top: 74px;
-      padding-bottom: 64px;
+      //padding-top: 74px;
+      //padding-bottom: 64px;
       h1 {
+         max-width:920px;
          margin-bottom: 0;
+         margin-left: auto;
+         margin-right: auto;
       }
       h2 {
          font-size: 30px;
          line-height: 1.25em;
+         max-width:920px;
          margin-bottom: 40px;
+         margin-left: auto;
+         margin-right: auto;
       }
+   }
+   .download {
+      border-bottom: 10px solid #b13e2e;
    }
 
    .home #content {
@@ -187,7 +241,4 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
 
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: @screen-lg) {
-   .jumbotron {
-      border-bottom: 10px solid #b13e2e;
-   }
 }

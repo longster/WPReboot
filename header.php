@@ -43,7 +43,6 @@
 	<!-- Startup Image iPhone (320x460) -->
 	<link rel="apple-touch-startup-image" href="<?php echo get_template_directory_uri(); ?>/assets/img/ico/wpreboot-load.png" media="screen and (max-device-width: 320px)" />
 
-
     <?php wp_head(); ?>
     
 </head>
@@ -67,7 +66,7 @@
 	  	<div class="collapse navbar-collapse navbar-ex1-collapse">
 	    	<?php wp_nav_menu( array(
 				'theme_location'	=>	'primary',
-				'menu_class'		=>	'nav navbar-nav pull-right',
+				'menu_class'		=>	'nav navbar-nav',
 				'depth'				=>	2,
 				'fallback_cb'		=>	'wpreboot_menu_fallback',
 				'walker'			=>	new WPReboot_Nav_Walker,
