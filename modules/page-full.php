@@ -9,7 +9,7 @@
 get_header(); ?>
 
 
-<?php if (is_front_page()) : ?>
+<?php if ( is_front_page() ) : ?>
 
 <section class="jumbotron text-center">
 		<h1>Wordpress Theme Development</h1>
@@ -47,11 +47,15 @@ get_header(); ?>
 
 <?php else: ?>
 
-<section id="content">	
+<section id="content" class="container">	
+	<div class="row">
+		<div class="col-md-12">
 		<?php while ( have_posts() ) : the_post(); ?>
             <?php get_template_part( '/modules/content', 'page' ); ?>
         <?php endwhile; // end of the loop. ?>
-</section><!-- #content -->
+	    </div><!-- .col-md-12 -->
+	</div><!-- .row -->
+</section><!-- #content .container -->
 
 <?php endif; ?>
 

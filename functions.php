@@ -26,6 +26,7 @@ require_once('lib/enqueue.php'); // to deregister or register styles & scripts
 */
 require_once('lib/bootstrap.php'); // load Foundation specific functions like top-bar
 
+
 /**********************
 Add theme supports
 **********************/
@@ -64,6 +65,7 @@ function wpreboot_theme_support() {
 }
 add_action('after_setup_theme', 'wpreboot_theme_support'); /* end wpreboot theme support */
 
+
 // create widget areas: sidebar, footer
 $sidebars = array('Sidebar');
 foreach ($sidebars as $sidebar) {
@@ -84,11 +86,26 @@ foreach ($sidebars as $sidebar) {
 	));
 }
 
+
 // return entry meta information for posts, used by multiple loops.
 function wpreboot_entry_meta() {
 	echo '<time class="updated" datetime="'. get_the_time('c') .'" pubdate>'. sprintf(__('Posted on %s at %s.', 'wpreboot'), get_the_time('l, F jS, Y'), get_the_time()) .'</time>';
 	echo '<p class="byline author">'. __('Written by', 'wpreboot') .' <a href="'. get_author_posts_url(get_the_author_meta('ID')) .'" rel="author" class="fn">'. get_the_author() .'</a></p>';
 }
+
+
+// highlight keyword search term
+function wpreboot_highlight_results($text){
+     if(is_search()){
+     $sr = get_query_var('s');
+     $keys = explode(" ",$sr);
+     $text = preg_replace('/('.implode('|', $keys) .')/iu', '<span class="search-highlight">'.$sr.'</span>', $text);
+     }
+     return $text;
+}
+add_filter('the_content', 'wpreboot_highlight_results');
+add_filter('the_excerpt', 'wpreboot_highlight_results');
+add_filter('the_title', 'wpreboot_highlight_results');
 
 
 // add credits

@@ -1,8 +1,30 @@
 <?php get_header(); ?>
 
+<header class="page-header">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+			<?php if ( is_category() ) : // Category ?>
+				<h1 class="entry-title"><?php single_cat_title(); ?></h1>
+			<?php elseif ( is_tag() ) : // Tag ?>
+				<h1 class="entry-title">Tag: <?php single_tag_title(); ?></h1>
+			<?php elseif ( is_archive() ) : // Archive ?>
+				<h1 class="entry-title">Archives: <?php single_month_title(' '); ?></h1>
+			<?php elseif ( is_search() ) : // Search ?>
+				<h1 class="entry-title"><?php _e('Search Results for', 'wpreboot'); ?> "<?php echo get_search_query(); ?>"</h1>
+			<?php else :  // Others ?>
+				<h1 class="entry-title"><?php the_title(); ?></h1>
+			<?php endif;?>
+			</div>
+		</div>
+	</div>
+</header>
+
 <section id="content" class="container">
+
 	<div class="row">
 		<div class="col-md-8">
+
 	<?php if ( have_posts() ) : ?>
 	
 		<?php /* Start the Loop */ ?>
