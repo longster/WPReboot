@@ -30,8 +30,10 @@ License URI:        http://www.opensource.org/licenses/mit-license.php
 
 
 /* ==========================================================================
-   Base
+   Base & Variables
    ========================================================================== */
+@skin-primary:    #d86045;
+@skin-secondary:  #fff;
 
 body { }
 
@@ -58,7 +60,7 @@ a.navbar-brand {
 }
 .banner { }
 .jumbotron {
-   background: #d86045 url('assets/img/sprite.png') no-repeat center -225px;
+   background: @skin-primary url('assets/img/sprite.png') no-repeat center -225px;
    padding-top: 74px;
    padding-bottom: 30px;
    margin-bottom: 0;
@@ -69,7 +71,7 @@ a.navbar-brand {
    }
 }
 .download {
-   background-color: #d86045;
+   background-color: @skin-primary;
    border-bottom: 5px solid #b13e2e;
    padding-bottom: 40px;
    margin-bottom: 30px;
@@ -88,7 +90,10 @@ a.navbar-brand {
 .home #content {
    margin-top: 0 !important;
 }
-.page #content, .single #content, .archive #content {
+.page #content, 
+.single #content, 
+.archive #content,
+.blog #content {
    margin-top: 90px;
 }
 .options {
@@ -130,6 +135,9 @@ a.navbar-brand {
 /* ==========================================================================
    Sidebar
    ========================================================================== */
+#sidebar {
+
+}
 
 
 

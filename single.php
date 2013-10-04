@@ -2,7 +2,7 @@
 
 <section id="content" class="container">	
 	<div class="row">
-		<div class="col-md-12">
+		<div class="col-md-8 col-md-offset-2">
 	
 	<?php while (have_posts()) : the_post(); ?>
 		<?php get_template_part( '/modules/content', 'single' ); ?>

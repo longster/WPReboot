@@ -28,7 +28,7 @@ function wpreboot_pagination() {
 
 /*
  * Replace page-numbers to pagination NOT WORKING AT THE MOMENT.. still trying to debug this shit.
- */
+
 function wpreboot_paginate_css_class( $classes ) {
 	if ( in_array('page-numbers', $classes ) )
 		$classes[] = 'pagination';
@@ -36,6 +36,7 @@ function wpreboot_paginate_css_class( $classes ) {
 	return $classes;
 }
 add_filter( 'paginate_css_class', 'wpreboot_paginate_css_class' );
+ */
 
 
 /**
