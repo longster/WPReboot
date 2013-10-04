@@ -11,7 +11,7 @@
 		<?php wpreboot_entry_meta(); ?>
 	</header>
 
-<?php if ( is_search() || is_category() || is_tag() ) : // Only display Excerpts for search, category, or tag ?>
+<?php if ( is_search() || is_category() || is_tag() ) : // Only display excerpts for search, category, or tag ?>
 
 	<div class="entry-summary">
 		<?php the_excerpt(); ?>

@@ -108,6 +108,13 @@ add_filter('the_excerpt', 'wpreboot_highlight_results');
 add_filter('the_title', 'wpreboot_highlight_results');
 
 
+// add ... to the excerpt
+//function excerptMore($more) {
+//        return '...';
+//}
+//add_filter('excerpt_more', 'excerptMore');
+
+
 // add credits
 if ( !function_exists( 'wpreboot_credits' ) ) :
 function wpreboot_credits() {
