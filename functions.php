@@ -108,11 +108,22 @@ add_filter('the_excerpt', 'wpreboot_highlight_results');
 add_filter('the_title', 'wpreboot_highlight_results');
 
 
-// add ... to the excerpt
-//function excerptMore($more) {
-//        return '...';
-//}
-//add_filter('excerpt_more', 'excerptMore');
+// customize the excerpt
+// remove_filter( 'excerpt_length', 'twentyten_excerpt_length' );
+// function wpreboot_excerpt_length( $length ) {
+// 	return 10;
+// }
+// add_filter( 'excerpt_length', 'wpreboot_excerpt_length' );
+
+
+
+// add more link
+// function wpreboot_excerpt_more( $more ) {
+// 	global $post;
+// 	return ' <a href="'.get_permalink($post->ID).'" title="'.get_the_title().'">&raquo; Read More</a>';
+// }
+// add_filter('excerpt_more', 'wpreboot_excerpt_more');
+
 
 
 // add credits

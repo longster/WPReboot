@@ -11,7 +11,7 @@
 		<?php wpreboot_entry_meta(); ?>
 	</header>
 
-<?php if ( is_search() || is_category() || is_tag() ) : // Only display excerpts for search, category, or tag ?>
+<?php if ( is_search()  ) : //|| is_category() || is_tag() Only display excerpts for search, category, or tag ?>
 
 	<div class="entry-summary">
 		<?php the_excerpt(); ?>
@@ -20,7 +20,7 @@
 <?php else : ?>
 
 	<div class="entry-content">
-		<?php the_content(__('Continue reading...', 'wpreboot')); ?>
+		<?php the_content(__('Continue <span class="meta-nav">&rarr;</span>', 'wpreboot')); ?>
 	</div>
 
 <?php endif; ?>

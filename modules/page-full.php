@@ -22,17 +22,19 @@ get_header(); ?>
 		<div class="col-md-offset-1 col-md-5">
 			<div class="options">
 				<h4>WPReboot : Bootstrap / LESS</h4>
-				<a class="btn btn-primary btn-lg btn-block">
-					Download Zip
-				</a>
+				<div class="btn-group btn-group-lg btn-group-justified">
+					<a href="#" class="btn btn-primary">Download Zip</a>
+					<a href="#" class="btn btn-primary">Fork</a>
+				</div>
 			</div>
 		</div>
 		<div class="col-md-5">
 			<div class="options">
 				<h4>WPReboot : Foundation / Scss</h4>
-				<a class="btn btn-primary btn-lg btn-block">
-					Download Zip
-				</a>
+				<div class="btn-group btn-group-lg btn-group-justified">
+					<a href="#" class="btn btn-primary">Download Zip</a>
+					<a href="#" class="btn btn-primary">Fork</a>
+				</div>
 			</div>
 		</div>
 	</div>
