@@ -5,7 +5,7 @@
 		<div class="col-md-8 col-md-offset-2">
 	
 	<?php while (have_posts()) : the_post(); ?>
-		<?php get_template_part( '/modules/content', 'single' ); ?>
+		<?php get_template_part( '/modules/content', get_post_format() ); ?>
 	<?php endwhile; // End the loop ?>
 
 	    <nav id="nav-single" class="pager">

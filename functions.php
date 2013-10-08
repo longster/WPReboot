@@ -103,26 +103,37 @@ function wpreboot_highlight_results($text){
      }
      return $text;
 }
-add_filter('the_content', 'wpreboot_highlight_results');
+//add_filter('the_content', 'wpreboot_highlight_results');
 add_filter('the_excerpt', 'wpreboot_highlight_results');
 add_filter('the_title', 'wpreboot_highlight_results');
 
 
-// customize the excerpt
-// remove_filter( 'excerpt_length', 'twentyten_excerpt_length' );
-// function wpreboot_excerpt_length( $length ) {
-// 	return 10;
-// }
-// add_filter( 'excerpt_length', 'wpreboot_excerpt_length' );
+
+// customize the length of excerpt
+function wpreboot_excerpt_length( $length ) {
+	return 100;
+}
+add_filter( 'excerpt_length', 'wpreboot_excerpt_length', 999 );
 
 
 
 // add more link
-// function wpreboot_excerpt_more( $more ) {
-// 	global $post;
-// 	return ' <a href="'.get_permalink($post->ID).'" title="'.get_the_title().'">&raquo; Read More</a>';
-// }
-// add_filter('excerpt_more', 'wpreboot_excerpt_more');
+function wpreboot_excerpt_more( $more ) {
+	return ' <a href="'.get_permalink($post->ID).'" title="'.get_the_title().'">&raquo; Read More</a>';
+}
+add_filter('excerpt_more', 'wpreboot_excerpt_more');
+
+
+
+// exclude page from search filter
+function wpreboot_search_filter($query) {
+if ($query->is_search) {
+$query->set('post_type', 'post');
+}
+return $query;
+}
+
+add_filter('pre_get_posts','wpreboot_search_filter');
 
 
 

@@ -1,7 +1,17 @@
 <?php get_header(); ?>
+<header class="page-header">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h1 class="entry-title">Error 404</h1>
+			</div>
+		</div>
+	</div>
+</header>
 
-<!-- Row for main content area -->
-	<div class="col-md-8" role="main">
+<section id="content" class="container">	
+	<div class="row">
+		<div class="col-md-8">
 	
 		<article <?php post_class() ?> id="post-<?php the_ID(); ?>">
 			<header>
@@ -19,8 +29,12 @@
 				</ul>
 			</div>
 		</article>
+		
+		</div>
 
-	</div>
-	<?php get_sidebar(); ?>
+	    <?php get_sidebar(); ?>
+
+	</div><!-- .row -->
+</section><!-- #content .container -->
 		
 <?php get_footer(); ?>
