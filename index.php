@@ -4,7 +4,9 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-			<?php if ( is_category() ) : // Category ?>
+			<?php if ( is_home() ) : // Blog ?>
+				<h1 class="entry-title">Blog</h1>
+			<?php elseif ( is_category() ) : // Category ?>
 				<h1 class="entry-title"><?php single_cat_title(); ?></h1>
 			<?php elseif ( is_tag() ) : // Tag ?>
 				<h1 class="entry-title">Tag: <?php single_tag_title(); ?></h1>

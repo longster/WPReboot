@@ -67,7 +67,7 @@
 	    	<?php wp_nav_menu( array(
 				'theme_location'	=>	'primary',
 				'menu_class'		=>	'nav navbar-nav',
-				'depth'				=>	2,
+				/*'depth'				=>	2,*/ //Bootstrap only support one level drop down for best practice.
 				'fallback_cb'		=>	'wpreboot_menu_fallback',
 				'walker'			=>	new WPReboot_Nav_Walker,
 			) );  ?>

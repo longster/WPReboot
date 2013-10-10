@@ -26,24 +26,12 @@ function wpreboot_pagination() {
 	}
 }
 
-/*
- * Replace page-numbers to pagination NOT WORKING AT THE MOMENT.. still trying to debug this shit.
-
-function wpreboot_paginate_css_class( $classes ) {
-	if ( in_array('page-numbers', $classes ) )
-		$classes[] = 'pagination';
-
-	return $classes;
-}
-add_filter( 'paginate_css_class', 'wpreboot_paginate_css_class' );
- */
-
 
 /**
  * A fallback when no navigation is selected by default, otherwise it throws some nasty errors in your face.
  */
 function wpreboot_menu_fallback() {
-	echo '<span class="fallback">';
+	echo '<span class="fallback pull-right">';
 	// Translators 1: Link to Menus, 2: Link to Customize
   	printf( __( 'Assign menu to the Primary Nav under %1$s or %2$s the design.', 'wpreboot' ),
   		sprintf(  __( '<a href="%s">Menus</a>', 'wpreboot' ),
@@ -56,116 +44,149 @@ function wpreboot_menu_fallback() {
   	echo '</span>';
 }
 
-
-/**
- * class required_walker
- * Custom output to enable the the Bootstrap Navigation style.
- */
 class WPReboot_Nav_Walker extends Walker_Nav_Menu {
 
 	/**
-	 * @see Walker_Nav_Menu::start_lvl()
+	 * @see Walker::start_lvl()
+	 * @since 3.0.0
+	 *
+	 * @param string $output Passed by reference. Used to append additional content.
+	 * @param int $depth Depth of page. Used for padding.
 	 */
-	function start_lvl( &$output, $depth ) {
-		$output .= "\n<ul class=\"dropdown-menu\">\n";
+	public function start_lvl( &$output, $depth = 0, $args = array() ) {
+		$indent = str_repeat( "\t", $depth );
+		$output .= "\n$indent<ul role=\"menu\" class=\" dropdown-menu\">\n";
 	}
 
 	/**
-	 * @see Walker_Nav_Menu::start_el()
+	 * @see Walker::start_el()
+	 * @since 3.0.0
+	 *
+	 * @param string $output Passed by reference. Used to append additional content.
+	 * @param object $item Menu item data object.
+	 * @param int $depth Depth of menu item. Used for padding.
+	 * @param int $current_page Menu item ID.
+	 * @param object $args
 	 */
-	function start_el( &$output, $item, $depth, $args ) {
-		global $wp_query;
-		
+	public function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
 		$indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
-		$li_attributes = $class_names = $value = '';
-		$classes = empty( $item->classes ) ? array() : (array) $item->classes;
-		$classes[] = 'menu-item-' . $item->ID;
 
-		if ( $args->has_children ) {
-			$classes[] = 'dropdown';
-			$li_attributes .= ' data-dropdown="dropdown"';
+		/**
+		 * Dividers, Headers or Disabled
+		 * =============================
+		 * Determine whether the item is a Divider, Header, Disabled or regular
+		 * menu item. To prevent errors we use the strcasecmp() function to so a
+		 * comparison that is not case sensitive. The strcasecmp() function returns
+		 * a 0 if the strings are equal.
+		 */
+		if ( strcasecmp( $item->attr_title, 'divider' ) == 0 && $depth === 1 ) {
+			$output .= $indent . '<li role="presentation" class="divider">';
+		} else if ( strcasecmp( $item->title, 'divider') == 0 && $depth === 1 ) {
+			$output .= $indent . '<li role="presentation" class="divider">';
+		} else if ( strcasecmp( $item->attr_title, 'dropdown-header') == 0 && $depth === 1 ) {
+			$output .= $indent . '<li role="presentation" class="dropdown-header">' . esc_attr( $item->title );
+		} else if ( strcasecmp($item->attr_title, 'disabled' ) == 0 ) {
+			$output .= $indent . '<li role="presentation" class="disabled"><a href="#">' . esc_attr( $item->title ) . '</a>';
+		} else {
+
+			$class_names = $value = '';
+
+			$classes = empty( $item->classes ) ? array() : (array) $item->classes;
+			$classes[] = 'menu-item-' . $item->ID;
+
+			$class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
+
+			if ( $args->has_children )
+				$class_names .= ' dropdown';
+
+			if ( in_array( 'current-menu-item', $classes ) )
+				$class_names .= ' active';
+
+			$class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
+
+			$id = apply_filters( 'nav_menu_item_id', 'menu-item-'. $item->ID, $item, $args );
+			$id = $id ? ' id="' . esc_attr( $id ) . '"' : '';
+
+			$output .= $indent . '<li' . $id . $value . $class_names .'>';
+
+			$atts = array();
+			$atts['title']  = ! empty( $item->title )	? $item->title	: '';
+			$atts['target'] = ! empty( $item->target )	? $item->target	: '';
+			$atts['rel']    = ! empty( $item->xfn )		? $item->xfn	: '';
+
+			// If item has_children add atts to a.
+			if ( $args->has_children && $depth === 0 ) {
+				$atts['href']   		= '#';
+				$atts['data-toggle']	= 'dropdown';
+				$atts['class']			= 'dropdown-toggle';
+			} else {
+				$atts['href'] = ! empty( $item->url ) ? $item->url : '';
+			}
+
+			$atts = apply_filters( 'nav_menu_link_attributes', $atts, $item, $args );
+
+			$attributes = '';
+			foreach ( $atts as $attr => $value ) {
+				if ( ! empty( $value ) ) {
+					$value = ( 'href' === $attr ) ? esc_url( $value ) : esc_attr( $value );
+					$attributes .= ' ' . $attr . '="' . $value . '"';
+				}
+			}
+
+			$item_output = $args->before;
+
+			/*
+			 * Glyphicons
+			 * ===========
+			 * Since the the menu item is NOT a Divider or Header we check the see
+			 * if there is a value in the attr_title property. If the attr_title
+			 * property is NOT null we apply it as the class name for the glyphicon.
+			 */
+			if ( ! empty( $item->attr_title ) )
+				$item_output .= '<a'. $attributes .'><span class="glyphicon ' . esc_attr( $item->attr_title ) . '"></span>&nbsp;';
+			else
+				$item_output .= '<a'. $attributes .'>';
+
+			$item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
+			$item_output .= ( $args->has_children && 0 === $depth ) ? ' <span class="caret"></span></a>' : '</a>';
+			$item_output .= $args->after;
+
+			$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
 		}
-
-		$class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
-		$class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
-
-		$id = apply_filters( 'nav_menu_item_id', 'menu-item-'. $item->ID, $item, $args );
-		$id = $id ? ' id="' . esc_attr( $id ) . '"' : '';
-
-		$output .= $indent . '<li' . $id . $value . $class_names . $li_attributes . '>';
-
-		$attributes	=	$item->attr_title	? ' title="'  . esc_attr( $item->attr_title ) .'"' : '';
-		$attributes	.=	$item->target		? ' target="' . esc_attr( $item->target     ) .'"' : '';
-		$attributes	.=	$item->xfn			? ' rel="'    . esc_attr( $item->xfn        ) .'"' : '';
-		$attributes	.=	$item->url			? ' href="'   . esc_attr( $item->url        ) .'"' : '';
-		$attributes	.=	$args->has_children	? ' class="dropdown-toggle" data-toggle="dropdown"' : '';
-
-		$item_output	=	$args->before . '<a' . $attributes . '>';
-		$item_output	.=	$args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
-		$item_output	.=	( $args->has_children ) ? ' <b class="caret"></b>' : '';
-		$item_output	.=	'</a>' . $args->after;
-
-		$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
 	}
 
 	/**
-	 * @see Walker::display_element()
+	 * Traverse elements to create list from elements.
+	 *
+	 * Display one element if the element doesn't have any children otherwise,
+	 * display the element and its children. Will only traverse up to the max
+	 * depth and no ignore elements under that depth.
+	 *
+	 * This method shouldn't be called directly, use the walk() method instead.
+	 *
+	 * @see Walker::start_el()
+	 * @since 2.5.0
+	 *
+	 * @param object $element Data object
+	 * @param array $children_elements List of elements to continue traversing.
+	 * @param int $max_depth Max depth to traverse.
+	 * @param int $depth Depth of current element.
+	 * @param array $args
+	 * @param string $output Passed by reference. Used to append additional content.
+	 * @return null Null on failure with no changes to parameters.
 	 */
-	function display_element( $element, &$children_elements, $max_depth, $depth = 0, $args, &$output ) {
+	public function display_element( $element, &$children_elements, $max_depth, $depth, $args, &$output ) {
+        if ( ! $element )
+            return;
 
-		if ( ! $element )
-			return;
+        $id_field = $this->db_fields['id'];
 
-		$id_field = $this->db_fields['id'];
+        // Display this element.
+        if ( is_object( $args[0] ) )
+           $args[0]->has_children = ! empty( $children_elements[ $element->$id_field ] );
 
-		//display this element
-		if ( is_array( $args[0] ) )
-			$args[0]['has_children'] = (bool) ( ! empty( $children_elements[$element->$id_field] ) AND $depth != $max_depth - 1 );
-		elseif ( is_object(  $args[0] ) )
-			$args[0]->has_children = (bool) ( ! empty( $children_elements[$element->$id_field] ) AND $depth != $max_depth - 1 );
-
-		$cb_args = array_merge( array( &$output, $element, $depth ), $args );
-		call_user_func_array( array( &$this, 'start_el' ), $cb_args );
-
-		$id = $element->$id_field;
-
-		// descend only when the depth is right and there are childrens for this element
-		if ( ( $max_depth == 0 OR $max_depth > $depth+1 ) AND isset( $children_elements[$id] ) ) {
-
-			foreach ( $children_elements[ $id ] as $child ) {
-
-				if ( ! isset( $newlevel ) ) {
-					$newlevel = true;
-					//start the child delimiter
-					$cb_args = array_merge( array( &$output, $depth ), $args );
-					call_user_func_array( array( &$this, 'start_lvl' ), $cb_args );
-				}
-				$this->display_element( $child, $children_elements, $max_depth, $depth + 1, $args, $output );
-			}
-			unset( $children_elements[ $id ] );
-		}
-
-		if ( isset( $newlevel ) AND $newlevel ) {
-			//end the child delimiter
-			$cb_args = array_merge( array( &$output, $depth ), $args );
-			call_user_func_array( array( &$this, 'end_lvl' ), $cb_args );
-		}
-
-		//end this element
-		$cb_args = array_merge( array( &$output, $element, $depth ), $args );
-		call_user_func_array( array( &$this, 'end_el' ), $cb_args );
-	}
+        parent::display_element( $element, $children_elements, $max_depth, $depth, $args, $output );
+    }
 }
 
-
-/**
- * Adds the active CSS class
- */
-function wpreboot_nav_menu_css_class( $classes ) {
-	if ( in_array('current-menu-item', $classes ) OR in_array( 'current-menu-ancestor', $classes ) )
-		$classes[]	=	'active';
-
-	return $classes;
-}
-add_filter( 'nav_menu_css_class', 'wpreboot_nav_menu_css_class' );
-
+?>
