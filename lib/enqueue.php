@@ -46,14 +46,14 @@ function wpreboot_scripts() {
    		wp_enqueue_script('comment-reply');
   	}
 
-  	wp_register_script('modernizr', get_template_directory_uri() . '/assets/js/plugins/modernizr-2.6.2-respond-1.1.0.min.js', false, null);  	
+  	//wp_register_script('modernizr', get_template_directory_uri() . '/assets/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js', false, null);  	 //should already be minified within script.min.js file.
     wp_register_script('wpreboot_scripts', get_template_directory_uri() . '/assets/js/scripts.min.js', false, '2a3e700c4c6e3d70a95b00241a845695', true);
     //wp_register_script('bootstrap-js','http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js', false, null, true);
     
     // enqueue styles and scripts
     //wp_enqueue_style('wpreboot-ie-only');
     //wp_enqueue_script( 'html5shiv' );
-    //wp_enqueue_script('modernizr');
+    //wp_enqueue_script('modernizr'); //it's already minified in script.js file.
     wp_enqueue_script('jquery');
     //wp_enqueue_script('bootstrap-js');
   	wp_enqueue_script('wpreboot_scripts');
@@ -66,7 +66,7 @@ function wpreboot_jquery_local_fallback($src, $handle) {
 	static $add_jquery_fallback = false;
 
   	if ($add_jquery_fallback) {
-    	echo '<script>window.jQuery || document.write(\'<script src="' . get_template_directory_uri() . '/assets/js/plugins/jquery-1.10.1.min.js"><\/script>\')</script>' . "\n";
+    	echo '<script>window.jQuery || document.write(\'<script src="' . get_template_directory_uri() . '/assets/js/vendor/jquery-1.10.1.min.js"><\/script>\')</script>' . "\n";
     	$add_jquery_fallback = false;
   	}
 
