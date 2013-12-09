@@ -46,20 +46,6 @@
 	<link rel="apple-touch-startup-image" href="<?php echo get_template_directory_uri(); ?>/assets/img/ico/wpreboot-load.png" media="screen and (max-device-width: 320px)" />
 
     <?php wp_head(); ?>
-
-    <script type="text/javascript">
-    //Temporary Fix for IE viewport - http://timkadlec.com/2013/01/windows-phone-8-and-device-width/
-    if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
-    var msViewportStyle = document.createElement("style");
-    msViewportStyle.appendChild(
-        document.createTextNode(
-            "@-ms-viewport{width:auto!important}"
-        )
-    );
-    document.getElementsByTagName("head")[0].
-        appendChild(msViewportStyle);
-	}
-	</script>
     
 </head>
 
