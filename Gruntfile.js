@@ -20,7 +20,7 @@ module.exports = function(grunt) {
         },
         files: {
           'style.css': [ //Automatically convert less to css
-            'assets/less/custom/style.less' //Original files
+            'assets/less/custom/style.less', //Original files
           ]
         }
       }
@@ -29,19 +29,19 @@ module.exports = function(grunt) {
       dist: {
         files: {
           'assets/js/scripts.min.js': [
-            'assets/js/bootstrap3.0.2/transition.js',
-            'assets/js/bootstrap3.0.2/alert.js',
-            'assets/js/bootstrap3.0.2/button.js',
-            'assets/js/bootstrap3.0.2/carousel.js',
-            'assets/js/bootstrap3.0.2/collapse.js',
-            'assets/js/bootstrap3.0.2/dropdown.js',
-            'assets/js/bootstrap3.0.2/modal.js',
-            'assets/js/bootstrap3.0.2/tooltip.js',
-            'assets/js/bootstrap3.0.2/popover.js',
-            'assets/js/bootstrap3.0.2/scrollspy.js',
-            'assets/js/bootstrap3.0.2/tab.js',
-            'assets/js/bootstrap3.0.2/affix.js',
-            'assets/js/vendor/*.js',
+            'assets/js/bootstrap3.0.3/transition.js',
+            'assets/js/bootstrap3.0.3/alert.js',
+            'assets/js/bootstrap3.0.3/button.js',
+            'assets/js/bootstrap3.0.3/carousel.js',
+            'assets/js/bootstrap3.0.3/collapse.js',
+            'assets/js/bootstrap3.0.3/dropdown.js',
+            'assets/js/bootstrap3.0.3/modal.js',
+            'assets/js/bootstrap3.0.3/tooltip.js',
+            'assets/js/bootstrap3.0.3/popover.js',
+            'assets/js/bootstrap3.0.3/scrollspy.js',
+            'assets/js/bootstrap3.0.3/tab.js',
+            'assets/js/bootstrap3.0.3/affix.js',
+            //'assets/js/vendor/*.js',
             'assets/js/_*.js'
           ]
         }
@@ -50,7 +50,7 @@ module.exports = function(grunt) {
     watch: {
       less: {
         files: [
-          'assets/less/custom/*.less'
+          'assets/less/custom/*.less',
         ],
         tasks: ['recess']
       },

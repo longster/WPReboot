@@ -2,7 +2,7 @@
 Theme Name:         WPReboot
 Theme URI:          http://wpreboot.lduong.com
 Description:        WPReboot is a versatile HTML5 responsive WordPress framework based on Bootstrap.
-Version:            3.0.1
+Version:            3.0.3
 Author:             Long Duong
 Author URI:         http://lduong.com/
 
@@ -27,6 +27,16 @@ License URI:        http://www.opensource.org/licenses/mit-license.php
 
 
 /* Extra small devices (phones, up to 480px) */
+
+/* ==========================================================================
+   Temporary Fix for IE viewport - http://timkadlec.com/2013/01/windows-phone-8-and-device-width/
+   ========================================================================== */
+@-webkit-viewport{width:device-width}
+@-moz-viewport{width:device-width}
+@-ms-viewport{width:device-width}
+@-o-viewport{width:device-width}
+@viewport{width:device-width}
+
 
 
 /* ==========================================================================
@@ -241,18 +251,12 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
       //padding-top: 74px;
       //padding-bottom: 64px;
       h1 {
-         max-width:920px;
          margin-bottom: 0;
-         margin-left: auto;
-         margin-right: auto;
       }
       h2 {
          font-size: 30px;
          line-height: 1.25em;
-         max-width:920px;
          margin-bottom: 40px;
-         margin-left: auto;
-         margin-right: auto;
       }
    }
    .download {

@@ -18,8 +18,10 @@
 
 	<title><?php wp_title( '|', true, 'right' ); ?></title>
 
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
 	<!-- Mobile viewport optimized -->
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 	<!-- Favicon and Feed -->
 	<link rel="shortcut icon" type="image/png" href="<?php echo get_template_directory_uri(); ?>/assets/img/ico/favicon.ico">
@@ -44,6 +46,20 @@
 	<link rel="apple-touch-startup-image" href="<?php echo get_template_directory_uri(); ?>/assets/img/ico/wpreboot-load.png" media="screen and (max-device-width: 320px)" />
 
     <?php wp_head(); ?>
+
+    <script type="text/javascript">
+    //Temporary Fix for IE viewport - http://timkadlec.com/2013/01/windows-phone-8-and-device-width/
+    if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
+    var msViewportStyle = document.createElement("style");
+    msViewportStyle.appendChild(
+        document.createTextNode(
+            "@-ms-viewport{width:auto!important}"
+        )
+    );
+    document.getElementsByTagName("head")[0].
+        appendChild(msViewportStyle);
+	}
+	</script>
     
 </head>
 
@@ -53,17 +69,17 @@
 	<div class="container">
 		<!-- Brand and toggle get grouped for better mobile display -->
 	  	<div class="navbar-header">
-	    	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+	    	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
 		      	<span class="sr-only">Toggle navigation</span>
 		      	<span class="icon-bar"></span>
 		      	<span class="icon-bar"></span>
 		      	<span class="icon-bar"></span>
 	    	</button>
-	    	<a class="navbar-brand<?php if (is_front_page()) : ?> active<?php endif; ?>" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
-	  	</div>
+	    	<a class="navbar-brand <?php if (is_front_page()) : ?>active<?php endif; ?>" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
+	  	</div><!-- /.navbar-header -->
 
 	  	<!-- Collect the nav links, forms, and other content for toggling -->
-	  	<div class="collapse navbar-collapse navbar-ex1-collapse">
+	  	<div class="navbar-collapse collapse">
 	    	<?php wp_nav_menu( array(
 				'theme_location'	=>	'primary',
 				'menu_class'		=>	'nav navbar-nav',
@@ -78,5 +94,5 @@
 	      		<button type="submit" class="btn btn-default">Submit</button>
 	    	</form>
 	  	</div><!-- /.navbar-collapse -->
-  	</div>
-</nav>
+  	</div><!-- /.container -->
+</nav><!-- /.navbar -->
