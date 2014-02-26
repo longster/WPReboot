@@ -12,36 +12,39 @@ module.exports = function(grunt) {
         '!assets/js/scripts.min.js'
       ]
     },
-    recess: {
+    less: {
       dist: {
-        options: {
-          compile: true,
-          compress: true
-        },
         files: {
           'style.css': [ //Automatically convert less to css
             'assets/less/custom/style.less', //Original files
           ]
+        },
+        options: {
+          compress: true,
+          // LESS source map
+          // To enable, set sourceMap to true and update sourceMapRootpath based on your install
+          sourceMap: false,
+          sourceMapFilename: '',
+          sourceMapRootpath: ''
         }
       }
     },
     uglify: {
       dist: {
         files: {
-          'assets/js/scripts.min.js': [
-            'assets/js/bootstrap3.0.3/transition.js',
-            'assets/js/bootstrap3.0.3/alert.js',
-            'assets/js/bootstrap3.0.3/button.js',
-            'assets/js/bootstrap3.0.3/carousel.js',
-            'assets/js/bootstrap3.0.3/collapse.js',
-            'assets/js/bootstrap3.0.3/dropdown.js',
-            'assets/js/bootstrap3.0.3/modal.js',
-            'assets/js/bootstrap3.0.3/tooltip.js',
-            'assets/js/bootstrap3.0.3/popover.js',
-            'assets/js/bootstrap3.0.3/scrollspy.js',
-            'assets/js/bootstrap3.0.3/tab.js',
-            'assets/js/bootstrap3.0.3/affix.js',
-            //'assets/js/vendor/*.js',
+          'assets/js/scripts.min.js': [ //Automatically combine and min all js to this single file
+            'assets/js/bootstrap/3.1.1/transition.js',
+            'assets/js/bootstrap/3.1.1/alert.js',
+            'assets/js/bootstrap/3.1.1/button.js',
+            'assets/js/bootstrap/3.1.1/carousel.js',
+            'assets/js/bootstrap/3.1.1/collapse.js',
+            'assets/js/bootstrap/3.1.1/dropdown.js',
+            'assets/js/bootstrap/3.1.1/modal.js',
+            'assets/js/bootstrap/3.1.1/tooltip.js',
+            'assets/js/bootstrap/3.1.1/popover.js',
+            'assets/js/bootstrap/3.1.1/scrollspy.js',
+            'assets/js/bootstrap/3.1.1/tab.js',
+            'assets/js/bootstrap/3.1.1/affix.js',
             'assets/js/_*.js'
           ]
         }
@@ -52,7 +55,7 @@ module.exports = function(grunt) {
         files: [
           'assets/less/custom/*.less',
         ],
-        tasks: ['recess']
+        tasks: ['less']
       },
       js: {
         files: [
@@ -87,13 +90,13 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-recess');
+  grunt.loadNpmTasks('grunt-contrib-less');
 
   // Register tasks
   grunt.registerTask('default', [
     'clean',
-    'uglify',
-    'recess' 
+    'less',
+    'uglify'
   ]);
   grunt.registerTask('dev', [
     'watch'
