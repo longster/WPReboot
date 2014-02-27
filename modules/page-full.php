@@ -12,8 +12,14 @@ get_header(); ?>
 <?php if ( is_front_page() ) : ?>
 
 <section class="jumbotron text-center">
-		<h1>Wordpress Theme Development</h1>
-		<h2>WPReboot is a Responsive WordPress theme based on HTML5 Boilerplate using Bootstrap or Foundation’s CSS preprocessors development method.</h2>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h1>WP<span>Reboot</span><br/>Theme Development</h1>
+				<h2>A Responsive WordPress theme based on HTML5 Boilerplate using Bootstrap framework with CSS preprocessors development method.</h2>
+			</div>
+		</div>
+	</div>
 </section>
 
 <section class="download text-center">
@@ -21,7 +27,7 @@ get_header(); ?>
 	<div class="row">
 		<div class="col-md-offset-1 col-md-5">
 			<div class="options">
-				<h4>WPReboot : Bootstrap / LESS</h4>
+				<h4>WPReboot : LESS</h4>
 				<div class="btn-group btn-group-lg btn-group-justified">
 					<a href="#" class="btn btn-primary">Download Zip</a>
 					<a href="#" class="btn btn-primary">Fork</a>
@@ -30,7 +36,7 @@ get_header(); ?>
 		</div>
 		<div class="col-md-5">
 			<div class="options">
-				<h4>WPReboot : Foundation / Scss</h4>
+				<h4>WPReboot : Sass/Scss</h4>
 				<div class="btn-group btn-group-lg btn-group-justified">
 					<a href="#" class="btn btn-primary">Download Zip</a>
 					<a href="#" class="btn btn-primary">Fork</a>

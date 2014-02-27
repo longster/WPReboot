@@ -42,8 +42,10 @@ License URI:        http://www.opensource.org/licenses/mit-license.php
 /* ==========================================================================
    Base & Variables
    ========================================================================== */
-@skin-primary:    #f8f8f8; //d86045
+@skin-primary:    #fff; //d86045
 @skin-secondary:  #fff;
+@skin-subtle:     #f8f8f8;
+
 
 body { }
 .search-highlight {
@@ -62,7 +64,7 @@ body { }
 a.navbar-brand {
    text-indent: -10000px;
    overflow: hidden;
-   background: url('assets/img/sprite.png') no-repeat 0 10px;
+   background: url('assets/img/sprite.png') no-repeat -330px 10px;
    width: 170px;
    opacity: .8;
    margin-left: 15px !important;
@@ -84,19 +86,24 @@ a.navbar-brand {
    border-bottom: 1px solid;
 }
 .jumbotron {
-   background: @skin-primary url('assets/img/sprite.png') no-repeat center -225px;
+   background: @skin-primary url('assets/img/sprite.png') no-repeat center -175px;
    padding-top: 74px;
    padding-bottom: 30px;
    margin-bottom: 0;
    h1 {
       margin-bottom: 0;
+      font-weight: 600;
+      line-height: 1em;
+      span {
+         color: @brand-primary;
+      }
    }
    h2 {
    }
 }
 .download {
    background-color: @skin-primary;
-   border-bottom: 5px solid #e7e7e7; //b13e2e
+   border-bottom: 1px solid #e7e7e7; //b13e2e
    padding-bottom: 40px;
    margin-bottom: 30px;
 }
@@ -119,15 +126,13 @@ a.navbar-brand {
    margin-top: 0 !important;
 }
 .page #content, 
-.single #content/*,
-.error404 #content, 
-.archive #content,
-.blog #content*/ {
+.single #content {
    margin-top: 90px;
 }
 .options {
    padding: 10px;
-   background: #fff;
+   border: 1px solid #eee;
+   background-color: #f9f9f9;
    border-radius: 5px;
    color: #333;
    margin-bottom: 10px;
@@ -220,10 +225,11 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
    }
 
    .jumbotron {
-      h1, h2 {
-         max-width:920px;
-         margin-left: auto;
-         margin-right: auto;
+      h1 {
+         font-weight: 600;
+         margin-top: 50px;
+         margin-bottom: 0;
+         font-size: 60px;
       }
    }
    .page-header {
@@ -248,10 +254,8 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
    }  
 
    .jumbotron {
-      //padding-top: 74px;
-      //padding-bottom: 64px;
       h1 {
-         margin-bottom: 0;
+         font-size: 80px;
       }
       h2 {
          font-size: 30px;
@@ -260,7 +264,7 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
       }
    }
    .download {
-      border-bottom: 10px solid #e7e7e7; //b13e2e
+      border-bottom: 1px solid #e7e7e7; //b13e2e
    }
 
    .home #content {
