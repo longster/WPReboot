@@ -16,7 +16,7 @@ add_action( 'wp_enqueue_scripts', 'wpreboot_css_style' );
  *
  * Enqueue scripts in the following order:
  * 1. jquery.min.js via Google CDN
- * 2. /theme/assets/js/scripts.min.js (in footer)
+ * 2. /theme/assets/js/scripts.min.js 
  */
 function wpreboot_scripts() {
 		// jQuery is loaded using the same method from HTML5 Boilerplate:
