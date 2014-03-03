@@ -31,7 +31,7 @@ get_header(); ?>
 			</div>
 			<div class="col-md-5">
 				<div class="options">
-					<h4>WPReboot : Sass/SCSS</h4>
+					<h4>WPReboot : Sass</h4>
 					<div class="btn-group btn-group-lg btn-group-justified">
 						<a href="#" class="btn btn-primary">Download Zip</a>
 						<a href="#" class="btn btn-primary">Fork</a>
@@ -43,44 +43,9 @@ get_header(); ?>
 </section><!-- .download  -->
 
 <section id="content">	
-		<?php /* while ( have_posts() ) : the_post(); ?>
+		<?php while ( have_posts() ) : the_post(); ?>
             <?php get_template_part( '/modules/content', 'page' ); ?>
-        <?php endwhile; // end of the loop. */ ?>
-
-	<h2 class="quote text-center"><span class="highlight">Clean</span> &#183; <span class="highlight">Fast</span> &#183; <span class="highlight">Simple</span> &#183; <span class="highlight">Easy</span> &#183; <span class="highlight">Agile</span></h2>
-
-	<div class="container features">	
-		<div class="row">
-			<div class="col-md-6">
-				<h3>Bootstrap</h3>
-				<p>Includes Bootstrap CSS framework for faster web development</p>
-			</div>
-			<div class="col-md-6">
-				<h3>HTML5</h3>
-				<p>Built with HTML5 to optimize structure and readability.</p>
-			</div>
-		</div><!-- .row -->
-		<div class="row">	
-			<div class="col-md-6">
-				<h3>Fully Responsive</h3>
-				<p>Built for small devices first. Then, as devices get larger and larger, layer in more complexity.</p>
-			</div>
-			<div class="col-md-6">
-				<h3>Clean &amp; Lean Code</h3>
-				<p>Lean markup without sacrificing the flexibility, utility, and speed across multi-devices</p>
-			</div>
-		</div><!-- .row -->
-		<div class="row">
-			<div class="col-md-6">
-				<h3>Built for Speed</h3>
-				<p>Lighter, faster and more advanced. Quickly code prototype to polished product.</p>
-			</div>
-			<div class="col-md-6">
-				<h3>LESS or SCSS</h3>
-				<p>Option to build either in LESS or SCSS preprocessor</p>
-			</div>
-		</div><!-- .row -->
-	</div><!-- .container .features -->
+        <?php endwhile; // end of the loop.  ?>
 </section><!-- #content -->
 
 <?php else: ?>
