@@ -33,18 +33,20 @@ module.exports = function(grunt) {
       dist: {
         files: {
           'assets/js/scripts.min.js': [ //Automatically combine and min all js to this single file
-            'assets/js/bootstrap/3.1.1/transition.js',
-            'assets/js/bootstrap/3.1.1/alert.js',
-            'assets/js/bootstrap/3.1.1/button.js',
-            'assets/js/bootstrap/3.1.1/carousel.js',
-            'assets/js/bootstrap/3.1.1/collapse.js',
-            'assets/js/bootstrap/3.1.1/dropdown.js',
-            'assets/js/bootstrap/3.1.1/modal.js',
-            'assets/js/bootstrap/3.1.1/tooltip.js',
-            'assets/js/bootstrap/3.1.1/popover.js',
-            'assets/js/bootstrap/3.1.1/scrollspy.js',
-            'assets/js/bootstrap/3.1.1/tab.js',
-            'assets/js/bootstrap/3.1.1/affix.js',
+            'assets/js/custom/*.js',
+            'assets/js/bootstrap/3.1.1/*.js',
+            //'assets/js/bootstrap/3.1.1/transition.js',
+            //'assets/js/bootstrap/3.1.1/alert.js',
+            //'assets/js/bootstrap/3.1.1/button.js',
+            //'assets/js/bootstrap/3.1.1/carousel.js',
+            //'assets/js/bootstrap/3.1.1/collapse.js',
+            //'assets/js/bootstrap/3.1.1/dropdown.js',
+            //'assets/js/bootstrap/3.1.1/modal.js',
+            //'assets/js/bootstrap/3.1.1/tooltip.js',
+            //'assets/js/bootstrap/3.1.1/popover.js',
+            //'assets/js/bootstrap/3.1.1/scrollspy.js',
+            //'assets/js/bootstrap/3.1.1/tab.js',
+            //'assets/js/bootstrap/3.1.1/affix.js',
             'assets/js/_*.js'
           ]
         }
