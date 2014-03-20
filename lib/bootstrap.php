@@ -31,7 +31,7 @@ function wpreboot_pagination() {
  * A fallback when no navigation is selected by default, otherwise it throws some nasty errors in your face.
  */
 function wpreboot_menu_fallback() {
-	echo '<span class="fallback pull-right">';
+	echo '<span class="fallback">';
 	// Translators 1: Link to Menus, 2: Link to Customize
   	printf( __( 'Assign menu to the Primary Nav under %1$s or %2$s the design.', 'wpreboot' ),
   		sprintf(  __( '<a href="%s">Menus</a>', 'wpreboot' ),

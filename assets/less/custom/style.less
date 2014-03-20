@@ -60,6 +60,11 @@ body { }
    padding-right: 5px;
    color: #fff;
 }
+.fallback {
+   color: inherit;
+   margin: 15px 0; 
+   display: inline-block;
+}
 
 
 /* Header */
@@ -167,10 +172,6 @@ a.navbar-brand {
 /* Footer */
 #colophon {
    padding-bottom: 30px;
-   .fallback {
-      color: inherit;      
-   }
-
 }
 
 /* WordPress Generated Classes - See: http://codex.wordpress.org/CSS#WordPress_Generated_Classes */
@@ -186,6 +187,17 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
    ========================================================================== */
 
 @media (min-width: @screen-sm) {
+   .navbar {
+      .fallback {
+         float:right;
+         a {
+            color: #b13e2e;
+            &:hover {
+               color:#fff;
+            }
+         }
+      }
+   }
    a.navbar-brand {
       margin-left: 0px !important;
    }
@@ -218,19 +230,7 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
    ========================================================================== */
 
 @media (min-width: @screen-md) { 
-   .fallback {
-      color: #fff;
-      margin: 15px 0; 
-      display: inline-block;
-      a {
-         color: #b13e2e;
-         &:hover {
-            color:#fff;
-         }
-      }
-   }  
-
-   .jumbotron {
+  .jumbotron {
       h1 {
          font-size: 80px;
       }
